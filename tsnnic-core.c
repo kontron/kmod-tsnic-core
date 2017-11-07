@@ -69,6 +69,8 @@ static int tsnnic_pci_probe(struct pci_dev *pdev, const struct pci_device_id *en
 	if (err)
 		return err;
 
+	pci_set_master(pdev);
+
 	/* fill in IO range for each cell; subdrivers handle the region */
 	for (i = 0; i < ARRAY_SIZE(tsnnic_mfd_cells); i++) {
 		int bar = tsnnic_mfd_cells[i].id;
