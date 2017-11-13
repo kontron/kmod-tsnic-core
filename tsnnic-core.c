@@ -47,16 +47,16 @@ static struct resource tsnic_mfd_resources[NR_BARS][MAX_RES];
 
 static struct mfd_cell tsnic_mfd_cells[] = {
 	{
-		.id = SWITCH_BAR,
-		.name = "tsnic-deip",
-		.num_resources = 3,
-		.resources = &tsnic_mfd_resources[SWITCH_BAR][0],
-	},
-	{
 		.id = TSE_BAR,
 		.name = "tsnic-tse",
 		.num_resources = 3,
 		.resources = &tsnic_mfd_resources[TSE_BAR][0],
+	},
+	{
+		.id = SWITCH_BAR,
+		.name = "tsnic-deip",
+		.num_resources = 3,
+		.resources = &tsnic_mfd_resources[SWITCH_BAR][0],
 	},
 };
 
