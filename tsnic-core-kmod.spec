@@ -9,7 +9,7 @@ Packager: Kontron
 Vendor: Kontron
 
 Version: %VERSION%
-Release: 1+%{kernel_release}%{?dist}
+Release: %SNAPSHOT%+%{kernel_release}%{?dist}
 License: GPL
 Source: %SRC_PACKAGE_NAME%.tar.gz
 
