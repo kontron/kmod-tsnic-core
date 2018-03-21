@@ -29,7 +29,7 @@ Driver for tsnic core
 make -C /usr/src/kernels/%{kernel_build}/ M=$PWD modules
 
 %install
-make -C /usr/src/kernels/%{kernel_build} INSTALL_MOD_PATH=%{_buildroot} M=$PWD modules_install
+make -C /usr/src/kernels/%{kernel_build} INSTALL_MOD_PATH=%{buildroot} M=$PWD modules_install
 
 %clean
 rm -rf %{buildroot}
