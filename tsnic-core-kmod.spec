@@ -1,5 +1,6 @@
 %define kernel_version %KERNEL_VERSION%
 %define kernel_build %KERNEL_BUILD%
+%define kernel_release %KERNEL_RELEASE%
 %define destdir /lib/modules/%{kernel_build}/extra
 
 Summary: Core Driver for the Kontron TSNIC
@@ -8,7 +9,7 @@ Packager: Kontron
 Vendor: Kontron
 
 Version: %VERSION%
-Release: 1+%{kernel_build}%{?dist}
+Release: 1+%{kernel_release}%{?dist}
 License: GPL
 Source: %SRC_PACKAGE_NAME%.tar.gz
 
