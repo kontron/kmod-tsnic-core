@@ -3,7 +3,7 @@
 #
 
 obj-m += tsnic-core.o
-pci-wrapper-objs := tsnic-core.o
+tsnic-core-objs := tsnic-core-pci.o tsnic-core-i2c.o
 
 KERNEL_SRC ?= /lib/modules/$(shell uname -r)/build
 
