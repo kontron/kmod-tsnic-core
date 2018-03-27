@@ -30,6 +30,7 @@ make -C /usr/src/kernels/%{kernel_build}/ M=$PWD modules
 
 %install
 make -C /usr/src/kernels/%{kernel_build} INSTALL_MOD_PATH=%{buildroot} M=$PWD modules_install
+install -D tsnic-core.conf %{buildroot}/etc/dracut.conf.d/tsnic-core.conf
 
 %clean
 rm -rf %{buildroot}
@@ -40,3 +41,4 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %{destdir}/tsnic-core.ko
+/etc/dracut.conf.d/tsnic-core.conf
