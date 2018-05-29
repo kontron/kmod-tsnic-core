@@ -71,8 +71,8 @@ static struct resource tsnic_tse_resources[] = {
 /* deipce */
 static struct resource deipce_resources[] = {
 	{
-		.start = 0x0000000,
-		.end =   0x00fffff,
+		.start = 0x3000000,
+		.end =   0x30fffff,
 		.flags = IORESOURCE_MEM,
 	},
 	{
@@ -85,8 +85,8 @@ static struct resource deipce_resources[] = {
 /* deipce-mdio */
 static struct resource deipce_mdio_resources[] = {
 	{
-		.start = 0x0200000,
-		.end = 0x02000ff,
+		.start = 0x4000000,
+		.end = 0x40000ff,
 		.flags = IORESOURCE_MEM,
 	},
 };
@@ -94,8 +94,8 @@ static struct resource deipce_mdio_resources[] = {
 /* flx_ac */
 static struct resource flx_ac_resources[] = {
 	{
-		.start = 0x0100000,
-		.end = 0x010ffff,
+		.start = 0x2000000,
+		.end = 0x200ffff,
 		.flags = IORESOURCE_MEM,
 	},
 };
@@ -103,8 +103,8 @@ static struct resource flx_ac_resources[] = {
 /* flx_ibc */
 static struct resource flx_ibc_resources[] = {
 	{
-		.start = 0x01f0000,
-		.end = 0x01fffff,
+		.start = 0x2100000,
+		.end = 0x210ffff,
 		.flags = IORESOURCE_MEM,
 	},
 };
@@ -112,8 +112,8 @@ static struct resource flx_ibc_resources[] = {
 /* flx_fpts */
 static struct resource flx_fpts0_resources[] = {
 	{
-		.start = 0x0190000,
-		.end = 0x019ffff,
+		.start = 0x2120000,
+		.end = 0x212ffff,
 		.flags = IORESOURCE_MEM,
 	},
 };
@@ -121,15 +121,15 @@ static struct resource flx_fpts0_resources[] = {
 /* flx_frtc */
 static struct resource flx_frtc0_resources[] = {
 	{
-		.start = 0x0170000,
-		.end = 0x017ffff,
+		.start = 0x2180000,
+		.end = 0x218ffff,
 		.flags = IORESOURCE_MEM,
 	},
 };
 static struct resource flx_frtc1_resources[] = {
 	{
-		.start = 0x0180000,
-		.end = 0x018ffff,
+		.start = 0x2190000,
+		.end = 0x219ffff,
 		.flags = IORESOURCE_MEM,
 	},
 };
@@ -137,8 +137,8 @@ static struct resource flx_frtc1_resources[] = {
 /* flx_fsc */
 static struct resource flx_fsc_resources[] = {
 	{
-		.start = 0x01a0000,
-		.end = 0x01affff,
+		.start = 0x21c0000,
+		.end = 0x21cffff,
 		.flags = IORESOURCE_MEM,
 	},
 };
