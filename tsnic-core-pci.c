@@ -57,13 +57,13 @@ static struct resource tsnic_tse_resources[] = {
 		.flags = IORESOURCE_MEM,
 	},
 	{
-		.start = TSE_IRQ0,
-		.end = TSE_IRQ0,
+		.start = TSE_IRQ1,
+		.end = TSE_IRQ1,
 		.flags = IORESOURCE_IRQ,
 	},
 	{
-		.start = TSE_IRQ1,
-		.end = TSE_IRQ1,
+		.start = TSE_IRQ0,
+		.end = TSE_IRQ0,
 		.flags = IORESOURCE_IRQ,
 	},
 };
