@@ -80,6 +80,11 @@ static struct resource deipce_resources[] = {
 		.end = DEIP_IRQ0,
 		.flags = IORESOURCE_IRQ,
 	},
+	{
+		.start = 0x0000000,
+		.end =   0x000ffff,
+		.flags = IORESOURCE_MEM,
+	},
 };
 
 /* deipce-mdio */
