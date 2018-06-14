@@ -270,6 +270,7 @@ static int tsnic_pci_probe(struct pci_dev *pdev, const struct pci_device_id *ent
 
 	if (pci_alloc_irq_vectors(pdev, 1, 32, PCI_IRQ_MSIX) != 4) {
 		// TODO: fall back to MSI or legacy interrupts
+		err = -ENODEV;
 		goto err_disable;
 	}
 	irqbase = pci_irq_vector(pdev, 0);
