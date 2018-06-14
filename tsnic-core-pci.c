@@ -252,8 +252,11 @@ static int tsnic_pci_probe(struct pci_dev *pdev, const struct pci_device_id *ent
 
 	/* map bar 5 resource directly */
 	bar5_virt = pci_iomap(pdev, I2C_BAR, 0);
-	if (!bar5_virt)
+	if (!bar5_virt) {
 		dev_err(&pdev->dev, "PCIe BAR 5 mapping failed!\n");
+		err = -ENODEV;
+		goto err_disable;
+	}
 
 	tsnic_setup_vpd(pdev);
 
