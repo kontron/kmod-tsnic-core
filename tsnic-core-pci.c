@@ -31,6 +31,8 @@
 
 #include "tsnic-core.h"
 
+#define FPGA_MIN_VEERSION 0x10
+
 enum tsnic_mfd_bars {
 	SWITCH_BAR = 0,
 	TSE_BAR = 1,
@@ -227,12 +229,26 @@ static int tsnic_pci_probe(struct pci_dev *pdev, const struct pci_device_id *ent
 {
 	int err;
 	int irqbase;
+	u16 version;
 
 	err = pci_enable_device(pdev);
 	if (err)
 		return err;
 
 	pci_set_master(pdev);
+
+	pci_read_config_word(pdev, PCI_CLASS_REVISION, &version);
+	version &= 0xff;
+
+	if (version < FPGA_MIN_VEERSION) {
+		err = -ENODEV;
+		dev_err(&pdev->dev,
+			"fpga version 0x%02x detected, but min. 0x%02x required!\n",
+			version, FPGA_MIN_VEERSION);
+		goto err_disable;
+	}
+
+	dev_info(&pdev->dev, "fpga version 0x%02x found.\n", version);
 
 	/* map bar 5 resource directly */
 	bar5_virt = pci_iomap(pdev, I2C_BAR, 0);
