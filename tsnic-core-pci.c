@@ -238,7 +238,7 @@ static int tsnic_pci_probe(struct pci_dev *pdev, const struct pci_device_id *ent
 	pci_set_master(pdev);
 
 	pci_read_config_word(pdev, PCI_CLASS_REVISION, &version);
-	version &= 0xff;
+	version &= 0x7f;
 
 	if (version < FPGA_MIN_VEERSION) {
 		err = -ENODEV;
