@@ -248,7 +248,7 @@ static int tsnic_pci_probe(struct pci_dev *pdev, const struct pci_device_id *ent
 		goto err_disable;
 	}
 
-	dev_info(&pdev->dev, "fpga version 0x%02x found.\n", version);
+	dev_info(&pdev->dev, "fpga version %d(%02xh) found.\n", version, version);
 
 	/* map bar 5 resource directly */
 	bar5_virt = pci_iomap(pdev, I2C_BAR, 0);
