@@ -177,18 +177,18 @@ int tsnic_vpd_eth_hw_addr(u8 *addr)
 	return -EINVAL;
 }
 
-int tsnic_vpd_asset_tag(u8 *asset, size_t size)
+int tsnic_vpd_asset_tag(char *asset, size_t len)
 {
 	if (vpd.err)
 		return vpd.err;
 
+	if (len < TSNIC_SNO_LEN)
+		return -ENOMEM;
+
 	switch (vpd.eep[0]) {
 	case 0:
-		if (size < 11) {
-			return -ENOMEM;
-		}
-		memcpy(asset, &vpd.eep[7], 10);
-		asset[17] = 0;
+		memcpy(asset, &vpd.eep[7], TSNIC_SNO_LEN);
+		asset[TSNIC_SNO_LEN] = 0;
 		return 0;
 
 	default:

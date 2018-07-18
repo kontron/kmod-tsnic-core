@@ -51,6 +51,7 @@ enum tsnic_mfd_irqs {
 
 static void __iomem *bar5_virt = NULL;
 static u8 eth_addr[ETH_ALEN];
+static char asset[TSNIC_SNO_LEN + 1];
 
 static struct resource tsnic_tse_resources[] = {
 	{
@@ -270,6 +271,10 @@ static int tsnic_pci_probe(struct pci_dev *pdev, const struct pci_device_id *ent
 			eth_addr[0] & 0x02 ? "Locally assigned" : "Burned-in",
 			eth_addr[0], eth_addr[1], eth_addr[2],
 			eth_addr[3], eth_addr[4], eth_addr[5]);
+
+	(void) tsnic_vpd_asset_tag(asset, sizeof(asset));
+
+	dev_info(&pdev->dev, "Serial number - %s.\n", asset);
 
 	if (pci_alloc_irq_vectors(pdev, 1, 32, PCI_IRQ_MSIX) != 4) {
 		// TODO: fall back to MSI or legacy interrupts

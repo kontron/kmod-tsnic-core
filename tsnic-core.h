@@ -20,9 +20,11 @@
 
 #include <linux/types.h>
 
+#define TSNIC_SNO_LEN 10
+
 int tsnic_vpd_init(void * io_addr);
 int tsnic_vpd_eth_hw_addr(u8 *addr);
-int tsnic_vpd_asset_tag(u8 *addr, size_t size);
+int tsnic_vpd_asset_tag(char *asset, size_t len);
 
 
 #endif /* TSNIC_CORE_H_ */
